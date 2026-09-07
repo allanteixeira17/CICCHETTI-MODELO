@@ -1,0 +1,113 @@
+Briefing para Criação de Site — Cicchetti Natal | Gastronomia & Aperitivo Italiano
+(Elaborado com base no conceito original do Cicchetti e no perfil do @cicchettinatal)
+
+Dados Iniciais & Serviços
+Qual é o seu nome e o nome da sua empresa para incluirmos no site?
+
+Equipe Cicchetti — Cicchetti Natal | Restaurante, Bar & Brunch
+
+Quais produtos ou serviços sua empresa oferece?
+
+Experiência gastronômica inspirada na tradição veneziana de cicchetti (pequenos pratos, tapas italianas e porções para compartilhar), massas artesanais (como o Trio de Massas com ravioli pecorino trufado, carbonara e nero alla puttanesca), brunch europeu aos finais de semana, coquetelaria autoral, carta de vinhos selecionados, almoço executivo semanal, eventos privados e reservas para comemorações.
+
+Objetivo & Estrutura
+Objetivo do Site
+
+Apresentar o conceito sofisticado e cosmopolita da casa, disponibilizar o cardápio digital interativo (com fotos de dar água na boca), facilitar reservas de mesas e eventos, divulgar horários do brunch/almoço executivo e atrair amantes da boa gastronomia e alta coquetelaria em Natal.
+
+Seções do Site
+
+Home, O Conceito Cicchetti, Cardápios (Tapas/Cicchetti, Almoço Executivo, Brunch & Drinks), Carta de Vinhos, Ambientes & Arquitetura, Reservas & Eventos, Galeria de Fotos e Contato/Localização.
+
+Conteúdo & Identidade
+Você tem textos prontos ou descrições sobre seus produtos/serviços?
+
+A Arte de Compartilhar: O conceito cicchetti nasceu nos tradicionais bàcari de Veneza. Pequenas porções criadas para harmonizar com um bom vinho ou drink, incentivando a conversa, a descoberta de novos sabores e o encontro social.
+
+Brunch ao Estilo Europeu: Sábados e domingos com seleções de pães artesanais, Eggs Benedict, mini bruschettas, quiches, waffles frescos e cafés especiais.
+
+Coquetelaria Autoral & Vinhos: Drinks exclusivos e clássicos italianos perfeitamente executados, além de uma adega estruturada para criar a harmonização ideal com nossos pratos.
+
+Descrição sobre a empresa
+
+O Cicchetti Natal une a alta gastronomia mediterrânea a um ambiente contemporâneo e acolhedor, assinado pelo arquiteto Flávio Góis. Seja para um almoço executivo refinado, um happy hour com aperitivos sofisticados ou um brunch descontraído no final de semana, oferecemos um refúgio de sabor e elegância no coração da cidade.
+
+Você tem um slogan ou frase de impacto que gostaria de usar no site?
+
+"Pequenos pratos, grandes momentos. A essência do aperitivo italiano em Natal."
+
+Políticas de Privacidade, trocas ou devoluções
+
+Atendemos rigorosamente às diretrizes da LGPD para reserva de mesas e cadastros no site. Cancelamentos ou alterações de reservas de grandes grupos devem ser sinalizados com até 4h de antecedência.
+
+Quais páginas o site precisa ter?
+
+Página Inicial (Home)
+
+O Conceito (História & Proposta Veneziana)
+
+Cardápio Completo (Menus & Drinks)
+
+Brunch & Almoço Executivo
+
+Reservas & Eventos Privados
+
+Onde Estamos & Contato
+
+Design & Funcionalidades
+Inspirações
+
+Visual alinhado ao posicionamento do restaurante: elegante, moderno, cosmopolita e caloroso. Combinação de fotos gastronômicas de altíssima qualidade com iluminação quente, elementos da arquitetura em madeira/verde folha/dourado e tipografia sofisticada.
+
+Referência Visual: Site Oficial do Cicchetti e o feed estético do @cicchettinatal.
+
+Estilo Geral: Estética clean de restaurante europeu contemporâneo, sem poluição visual, destacando o visual dos pratos e a atmosfera do ambiente.
+
+Há alguma funcionalidade específica que você deseja no site?
+
+Sistema de reserva de mesas online integrado (ex: Tagme, Goomer ou formulário com WhatsApp direto da recepção).
+
+Visualizador de Cardápio Digital interativo, dividido por categorias (Tapas, Massas, Sobremesas, Drinks e Vinhos).
+
+Destaque rotativo na Home para o "Prato do Mês", "Brunch do Final de Semana" ou ações especiais (como Rolha Free e música ao vivo).
+
+Integração com o Google Maps para direcionar clientes às unidades (ex: Midway Mall).
+
+Fotos e material visuais que serão usados
+
+Ensaios fotográficos gastronômicos profissionais do cardápio, fotos ambientadas da arquitetura do salão, vídeos de preparação dos drinks e o logotipo vetorial elegante da marca (.PNG/.EPS).
+
+Contato & Redes Sociais
+Telefones para contato: (84) 3000-0000 (Ajustar conforme o WhatsApp de atendimento oficial)
+
+WhatsApp para Reservas: (84) 90000-0000
+
+E-mail para contato: contato@cicchetti.com.br / natal@cicchetti.com.br
+
+Links das redes sociais:
+
+Instagram: @cicchettinatal
+
+Site Oficial: cicchetti.com.br
+
+SEO & Infraestrutura
+Se você fosse procurar sua empresa no Google, quais palavras usaria?
+
+Restaurante italiano sofisticado em Natal; Cicchetti Natal Midway; Onde tomar brunch no final de semana em Natal; Bar de tapas e vinhos perto de mim; Restaurante para almoço executivo e jantares de negócios.
+
+Você registrou um nome de domínio para seu site?
+
+Sim, domínio pertencente à marca cicchetti.com.br (com subdomínio/página dedicada para cicchetti.com.br/natal).
+
+Você tem um servidor de hospedagem?
+
+Sim, hospedagem ativa gerenciada pela equipe de tecnologia da marca.
+
+Seu site deve seguir algum padrão de identidade visual?
+
+Sim! Tons de Verde Botânico/Sálvia, Terracota, Madeira Clara, Dourado e Off-White. A estética deve respirar sofisticação mediterrânea, aconchego e modernidade.
+
+Informações Adicionais
+Existe alguma outra informação não listada aqui que você gostaria de nos informar?
+
+É essencial deixar bem visíveis os horários de funcionamento específicos de cada modalidade (ex: Almoço Executivo de Segunda a Sexta, Brunch aos Sábados e Domingos das 10h às 15h, e Jantar diariamente), além do endereço completo com indicação de acesso no Midway Mall para facilitar a chegada do cliente.

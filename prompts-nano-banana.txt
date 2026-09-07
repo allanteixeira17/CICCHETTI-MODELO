@@ -1,0 +1,22 @@
+# Prompts Otimizados - Nano Banana (Gemini 2.5 Flash Image)
+*Para o site Cicchetti Natal*
+
+## Prompt 1: Hero Section (Background)
+**Aspect Ratio:** 16:9
+**Prompt:** Professional food photography, interior of an elegant and sophisticated Italian restaurant at night, warm intimate lighting, wooden tables, sage green and terracotta accents in the decor, a table in focus featuring a beautiful spread of venetian tapas (cicchetti) and two glasses of red wine, blurred background with subtle bokeh, cosmopolitan atmosphere, cinematic lighting, 8k resolution, highly detailed, photorealistic.
+
+## Prompt 2: O Conceito (Seção Sobre)
+**Aspect Ratio:** 4:5
+**Prompt:** Architectural photography, interior design of a modern upscale Mediterranean restaurant, elegant archways, sage green walls with terracotta accents, light oak wood furniture, golden brass lighting fixtures, warm and inviting atmosphere, daytime natural light coming from large windows, clean and contemporary aesthetic, photorealistic, Vogue Living style.
+
+## Prompt 3: Brunch ao Estilo Europeu
+**Aspect Ratio:** 3:2
+**Prompt:** Culinary photography, a stunning and delicious European brunch spread on a rustic wooden table, eggs benedict with hollandaise sauce, fresh sourdough bread, artisanal quiches, a cup of specialty cappuccino with latte art, morning sunlight casting soft shadows, elegant table setting, highly appetizing, 8k resolution, food magazine style.
+
+## Prompt 4: Almoço Executivo
+**Aspect Ratio:** 3:2
+**Prompt:** Professional food photography, an elegant executive lunch setting, a perfectly plated dish of fresh artisan pasta, ravioli with truffle shavings, a glass of sparkling water and a glass of white wine in the background, crisp white napkin, golden cutlery, sophisticated and clean presentation, bright and airy lighting, photorealistic.
+
+## Prompt 5: Galeria - Coquetelaria Autoral
+**Aspect Ratio:** 1:1
+**Prompt:** Cocktail photography, a beautifully crafted signature cocktail in an elegant crystal glass, placed on a dark marble bar counter, moody lighting, a subtle garnish of dried orange and rosemary, blurred background of a sophisticated backbar with glowing bottles, luxurious atmosphere, sharp focus, 8k.
