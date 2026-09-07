@@ -85,20 +85,22 @@
         .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:#fff;padding:8px 16px;z-index:10000;transition:top .3s}
         .skip-link:focus{top:0}
     </style>
-    <!-- Fonts (preconnect + display=swap) -->
+
+    <!-- Preload: imagem LCP (ANTES de tudo para máxima prioridade) -->
+    <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp">
+
+    <!-- Fonts (async - não bloqueia render) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"></noscript>
     
-    <!-- Font Awesome - carregamento assíncrono (não bloqueia render) -->
+    <!-- Font Awesome (async) -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- Preload: imagem LCP real (primeiro slide do hero em webp) -->
-    <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp">
-    
-    <!-- CSS completo (async - o crítico inline acima garante first paint rápido) -->
+    <!-- CSS completo (async - o crítico inline acima garante first paint) -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
@@ -152,41 +154,12 @@
     <!-- HERO SECTION -->
     <section id="home" class="hero">
         <!-- Slideshow de Imagens -->
-        <div class="hero-slideshow">
+        <!-- Slideshow: apenas 1 slide no HTML (LCP). Os demais são injetados via JS após page load -->
+        <div class="hero-slideshow" id="hero-slideshow">
             <div class="hero-slide active">
                 <picture>
                     <source type="image/webp" srcset="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp">
                     <img src="assets/hero/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.jpg" alt="Trio de massas artesanais servido com carbonara, ravioli pecorino trufado e nero alla puttanesca" width="1920" height="1080" fetchpriority="high" decoding="async">
-                </picture>
-            </div>
-            <div class="hero-slide">
-                <picture>
-                    <source type="image/webp" srcset="assets/webp/Selecao-de-sobremesas-da-casa-em-versao-mini-2048x1430.webp">
-                    <img src="assets/hero/Selecao-de-sobremesas-da-casa-em-versao-mini-2048x1430.jpg" alt="Seleção de sobremesas da casa em versão mini" width="1920" height="1080" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <div class="hero-slide">
-                <picture>
-                    <source type="image/webp" srcset="assets/webp/O-Cicchetti-Midway-ja-se-firma-como-uma-das-novidades-gastronomicas-mais-comentadas-da-cidade-funcionando-com-dois-ambientes-modernos-scaled.webp">
-                    <img src="assets/hero/O-Cicchetti-Midway-ja-se-firma-como-uma-das-novidades-gastronomicas-mais-comentadas-da-cidade-funcionando-com-dois-ambientes-modernos-scaled.jpg" alt="Ambiente moderno do Cicchetti no Midway Mall" width="1920" height="1080" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <div class="hero-slide">
-                <picture>
-                    <source type="image/webp" srcset="assets/webp/Polvo-grelhado-com-molho-romesco-batata-rustica-e-chimichurri-scaled.webp">
-                    <img src="assets/hero/Polvo-grelhado-com-molho-romesco-batata-rustica-e-chimichurri-scaled.jpg" alt="Polvo grelhado com molho romesco, batata rústica e chimichurri" width="1920" height="1080" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <div class="hero-slide">
-                <picture>
-                    <source type="image/webp" srcset="assets/webp/Salada-de-Fermentados-Pachamama-2048x1365.webp">
-                    <img src="assets/hero/Salada-de-Fermentados-Pachamama-2048x1365.jpg" alt="Salada de fermentados Pachamama" width="1920" height="1080" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <div class="hero-slide">
-                <picture>
-                    <source type="image/webp" srcset="assets/webp/Cicchetti-Midway-e-a-primeira-franquia-da-marca-no-Brasil-e-traz-para-o-publico-potiguar-a-mesma-experiencia-que-consagrou-o-Cicchetti-em-Pipa-2048x1365.webp">
-                    <img src="assets/hero/Cicchetti-Midway-e-a-primeira-franquia-da-marca-no-Brasil-e-traz-para-o-publico-potiguar-a-mesma-experiencia-que-consagrou-o-Cicchetti-em-Pipa-2048x1365.jpg" alt="Cicchetti Midway - primeira franquia da marca no Brasil" width="1920" height="1080" loading="lazy" decoding="async">
                 </picture>
             </div>
         </div>
@@ -377,7 +350,7 @@
                     <p>Não deixe para a última hora. Garanta seu lugar no bar de tapas e vinhos mais desejado da cidade. Preencha o formulário para eventos ou grupos maiores, ou faça sua reserva imediata via WhatsApp.</p>
                     
                     <div class="contact-methods mt-4">
-                        <a href="https://wa.me/5584900000000" class="btn-whatsapp-large" target="_blank" title="Reservar via WhatsApp">
+                        <a href="https://wa.me/5584994541063?text=Quero%20meu%20site%20igual%20ao%20modelo%20do%20Cicchetti" class="btn-whatsapp-large" target="_blank" title="Reservar via WhatsApp">
                             <i class="fa-brands fa-whatsapp"></i> Reservar pelo WhatsApp
                         </a>
                     </div>
@@ -450,7 +423,7 @@
     </footer>
 
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5584900000000" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
+    <a href="https://wa.me/5584994541063?text=Quero%20meu%20site%20igual%20ao%20modelo%20do%20Cicchetti" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip">Fale com a Recepção</span>
     </a>
