@@ -6,52 +6,51 @@
     <title>Cardápio | Cicchetti Natal</title>
     <meta name="description" content="Conheça nosso cardápio fictício de tapas, massas artesanais, vinhos e drinks autorais.">
     
-    <!-- CSS CRÍTICO INLINE -->
+    <!-- CSS CRÍTICO INLINE (Mínimo para First Paint) -->
     <style>
-        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--vinho:#632626;--madeira-clara:#D9C5B2;--dourado:#C5A880;--dourado-hover:#e0c298;--off-white:#F7F5F0;--white:#ffffff;--bg-alt:#EFECE4;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--section-padding:6rem 0;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--shadow-sm:0 4px 6px rgba(0,0,0,0.05);--shadow-md:0 10px 30px rgba(0,0,0,0.1);--shadow-hover:0 20px 40px rgba(0,0,0,0.15);--transition:all 0.3s cubic-bezier(0.25,0.8,0.25,1)}
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;font-size:16px}
-        body{font-family:var(--font-body);color:var(--text-dark);background-color:var(--off-white);line-height:1.6;overflow-x:hidden}
+        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--dourado:#C5A880;--off-white:#F7F5F0;--white:#fff;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--radius-sm:4px;--transition:all .3s cubic-bezier(.25,.8,.25,1)}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{font-size:16px;scroll-behavior:smooth}
+        body{font-family:var(--font-body);color:var(--text-dark);background:var(--off-white);line-height:1.6;overflow-x:hidden}
         .container{max-width:var(--container-width);margin:0 auto;padding:0 2rem}
-        .model-notice{background:linear-gradient(135deg,#ff6b35 0%,#f7931e 100%);color:white;text-align:center;padding:0.75rem 1rem;font-size:0.85rem;font-weight:500;position:relative;z-index:1001}
-        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap}
-        #header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.5rem 0;background-color:transparent;transition:background-color 0.4s ease,padding 0.4s ease,box-shadow 0.4s ease}
+        #header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 0;background:transparent;transition:background .4s,padding .4s,box-shadow .4s}
         .nav-container{display:flex;justify-content:space-between;align-items:center}
         .logo{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--dourado);letter-spacing:2px}
-        .menu-header{background:linear-gradient(135deg,#18374B 0%,#1f4a63 100%);padding:6rem 0 3rem;text-align:center;color:var(--text-light)}
-        .menu-header h1{color:var(--dourado);font-size:3.5rem;margin-bottom:0.5rem}
+        .menu-header{background:linear-gradient(135deg,#18374B,#1f4a63);padding:6rem 0 3rem;text-align:center;color:var(--text-light)}
+        .menu-header h1{color:var(--dourado);font-size:clamp(2.5rem,5vw,3.5rem);margin-bottom:.5rem}
         .menu-section{padding:4rem 0}
         .menu-section-title{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
         .menu-section-title i{font-size:1.8rem;color:var(--terracota)}
         .menu-section-title h2{font-size:2rem;color:var(--verde-botanico)}
-        .menu-item{display:flex;justify-content:space-between;align-items:flex-start;padding:1.25rem;background:var(--white);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);transition:var(--transition);margin-bottom:1.5rem}
-        .menu-item-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--verde-botanico);margin-bottom:0.3rem}
-        .menu-item-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.5}
+        .menu-item{display:flex;justify-content:space-between;align-items:flex-start;padding:1.25rem;background:#fff;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,.05);transition:var(--transition);margin-bottom:1.5rem}
+        .menu-item-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--verde-botanico);margin-bottom:.3rem}
+        .menu-item-desc{font-size:.9rem;color:var(--text-muted);line-height:1.5}
         .menu-item-price{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--terracota);white-space:nowrap;margin-left:1.5rem}
-        .menu-item-tag{display:inline-block;background:var(--dourado);color:var(--verde-botanico);font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:20px;margin-top:0.4rem}
-        .bg-alt{background-color:var(--bg-alt)}
-        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:var(--white);padding:8px 16px;z-index:10000;transition:top 0.3s}
+        .menu-item-tag{display:inline-block;background:var(--dourado);color:var(--verde-botanico);font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:20px;margin-top:.4rem}
+        .bg-alt{background:#EFECE4}
+        .model-notice{background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;text-align:center;padding:.75rem 1rem;font-size:.85rem;font-weight:500;z-index:1001}
+        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:#fff;padding:8px 16px;z-index:10000;transition:top .3s}
         .skip-link:focus{top:0}
-        .dev-credit{background:rgba(0,0,0,0.3);padding:0.4rem 0;text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.7)}
-        .dev-credit a{color:var(--dourado);font-weight:600}
         @media(max-width:992px){.nav-links,.nav-actions .btn-outline{display:none}.mobile-menu-btn{display:block}}
         @media(max-width:576px){.menu-header h1{font-size:2.5rem}.menu-item{flex-direction:column;gap:1rem}.menu-item-price{margin-left:0}}
     </style>
 
     <!-- Preload LCP -->
-    <link rel="preload" href="assets/webp/almoco.webp" as="image" type="image/webp">
+    <link rel="preload" as="image" type="image/webp" href="assets/webp/almoco.webp">
 
-    <!-- Fonts (non-blocking) -->
+    <!-- Fonts -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/cormorantgaramond/v26/Co62a7_CwtYpsCgCKQ7LqvxSAGY.ttf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v11/ChYodB5jHpjNld34vgm6RwwKExDf.ttf">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <!-- Font Awesome (non-blocking) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+
+    <!-- Font Awesome async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <!-- CSS Completo (non-blocking) -->
+
+    <!-- CSS Completo async -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>

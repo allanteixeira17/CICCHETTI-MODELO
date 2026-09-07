@@ -55,61 +55,53 @@
     }
     </script>
 
-    <!-- CSS CRÍTICO INLINE (Above-the-fold) -->
+    <!-- CSS CRÍTICO INLINE (Mínimo para First Paint) -->
     <style>
-        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--vinho:#632626;--madeira-clara:#D9C5B2;--dourado:#C5A880;--dourado-hover:#e0c298;--off-white:#F7F5F0;--white:#ffffff;--bg-alt:#EFECE4;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--section-padding:6rem 0;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--shadow-sm:0 4px 6px rgba(0,0,0,0.05);--shadow-md:0 10px 30px rgba(0,0,0,0.1);--shadow-hover:0 20px 40px rgba(0,0,0,0.15);--transition:all 0.3s cubic-bezier(0.25,0.8,0.25,1)}
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;font-size:16px}
-        body{font-family:var(--font-body);color:var(--text-dark);background-color:var(--off-white);line-height:1.6;overflow-x:hidden}
+        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--dourado:#C5A880;--off-white:#F7F5F0;--white:#fff;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--radius-sm:4px;--transition:all .3s cubic-bezier(.25,.8,.25,1)}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{font-size:16px;scroll-behavior:smooth}
+        body{font-family:var(--font-body);color:var(--text-dark);background:var(--off-white);line-height:1.6;overflow-x:hidden}
         .container{max-width:var(--container-width);margin:0 auto;padding:0 2rem}
-        .model-notice{background:linear-gradient(135deg,#ff6b35 0%,#f7931e 100%);color:white;text-align:center;padding:0.75rem 1rem;font-size:0.85rem;font-weight:500;position:relative;z-index:1001}
-        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap}
-        .model-notice i{font-size:1rem}
-        .model-notice strong{font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
-        #header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.5rem 0;background-color:transparent;transition:background-color 0.4s ease,padding 0.4s ease,box-shadow 0.4s ease}
+        #header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 0;background:transparent;transition:background .4s,padding .4s,box-shadow .4s}
         .nav-container{display:flex;justify-content:space-between;align-items:center}
         .logo{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--dourado);letter-spacing:2px}
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-        .hero-slideshow{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
-        .hero-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}
+        .hero-slideshow{position:absolute;inset:0;z-index:0}
+        .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s}
         .hero-slide.active{opacity:1}
-        .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center}
-        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(24,55,75,0.9) 0%,rgba(20,40,55,0.7) 100%);z-index:1}
+        .hero-slide img{width:100%;height:100%;object-fit:cover}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(24,55,75,.9),rgba(20,40,55,.7));z-index:1}
         .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;color:var(--text-light);padding:0 2rem}
-        .hero-subtitle{display:block;font-size:0.9rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:1.5rem}
-        .hero h1{font-family:var(--font-display);font-size:5rem;font-weight:600;line-height:1.1;color:var(--white);margin-bottom:1.5rem;text-shadow:0 4px 15px rgba(0,0,0,0.3)}
-        .hero p{font-size:1.2rem;font-weight:300;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;opacity:0.9}
+        .hero-subtitle{display:block;font-size:.9rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:1.5rem}
+        .hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,5rem);font-weight:600;line-height:1.1;color:#fff;margin-bottom:1.5rem;text-shadow:0 4px 15px rgba(0,0,0,.3)}
+        .hero p{font-size:1.2rem;font-weight:300;margin-bottom:2.5rem;max-width:700px;margin-inline:auto;opacity:.9}
         .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-        .btn-gold,.btn-wine,.btn-outline,.btn-outline-light{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 2.5rem;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;font-size:0.85rem;border-radius:var(--radius-sm);cursor:pointer;transition:var(--transition);border:1px solid transparent;text-decoration:none}
-        .btn-gold{background-color:var(--dourado);color:var(--verde-botanico)}
-        .btn-outline-light{background-color:transparent;color:var(--white);border-color:var(--white)}
-        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:var(--white);padding:8px 16px;z-index:10000;transition:top 0.3s}
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2.5rem;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;border-radius:4px;cursor:pointer;transition:var(--transition);border:1px solid transparent;text-decoration:none}
+        .btn-gold{background:var(--dourado);color:var(--verde-botanico)}
+        .btn-outline-light{background:transparent;color:#fff;border-color:#fff}
+        .model-notice{background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;text-align:center;padding:.75rem 1rem;font-size:.85rem;font-weight:500;z-index:1001}
+        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+        .model-notice i{font-size:1rem}.model-notice strong{font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:#fff;padding:8px 16px;z-index:10000;transition:top .3s}
         .skip-link:focus{top:0}
-        .dev-credit{background:rgba(0,0,0,0.3);padding:0.4rem 0;text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.7);letter-spacing:0.5px}
-        .dev-credit a{color:var(--dourado);font-weight:600;transition:var(--transition)}
-        .dev-credit a:hover{color:var(--dourado-hover);text-decoration:underline}
-        @media(max-width:992px){.hero h1{font-size:3.5rem}.nav-links,.nav-actions .btn-outline{display:none}.mobile-menu-btn{display:block}}
-        @media(max-width:576px){.hero h1{font-size:2.8rem}.hero-buttons{flex-direction:column}}
     </style>
 
     <!-- Preload LCP Image -->
-    <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp">
+    <link rel="preload" as="image" type="image/webp" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp">
 
-    <!-- Fonts (non-blocking) -->
+    <!-- Fonts - Preload crítico + async load -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/cormorantgaramond/v26/Co62a7_CwtYpsCgCKQ7LqvxSAGY.ttf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v11/ChYodB5jHpjNld34vgm6RwwKExDf.ttf">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
-    <!-- Font Awesome (non-blocking) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+
+    <!-- Font Awesome async -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <!-- CSS Completo (non-blocking) -->
+
+    <!-- CSS Completo async -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    
-    <!-- Fallback para CSS não bloqueante -->
-    <noscript>
-        <link rel="stylesheet" href="css/style.css">
-    </noscript>
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
 
