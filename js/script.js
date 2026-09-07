@@ -2,33 +2,61 @@
   SISTEMA:    Cicchetti Natal Landing Page
   TELA:       Home Completa
   DESIGNER:   Web Designer Sênior
-  STACK:      JS Vanilla
+  STACK:      JS Vanilla OTIMIZADO
 */
+
+/* Função throttle para performance */
+function throttle(fn, wait) {
+    let last = 0;
+    return (...args) => {
+        const now = Date.now();
+        if (now - last >= wait) {
+            last = now;
+            fn(...args);
+        }
+    };
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    /* 1. Header Scroll Effect */
+    /* 0. Hero Slideshow */
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        const slideInterval = 5000;
+
+        const nextSlide = () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        };
+
+        setInterval(nextSlide, slideInterval);
+    }
+
+    /* 1. Header Scroll Effect - com throttle */
     const header = document.getElementById('header');
     
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    };
 
-    /* 2. Scroll Spy para Nav Links */
+    window.addEventListener('scroll', throttle(handleScroll, 100), { passive: true });
+
+    /* 2. Scroll Spy para Nav Links - com throttle */
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    window.addEventListener('scroll', () => {
+    const handleScrollSpy = () => {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            // Ajuste do offset para ativação
             if (pageYOffset >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
             }
@@ -40,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
-    });
+    };
+
+    window.addEventListener('scroll', throttle(handleScrollSpy, 150), { passive: true });
 
     /* 3. Mobile Menu Toggle */
     const mobileBtn = document.querySelector('.mobile-menu-btn');

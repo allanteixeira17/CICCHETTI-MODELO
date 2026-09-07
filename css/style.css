@@ -423,8 +423,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('../assets/hero.jpg') center/cover no-repeat;
-    padding-top: 100px;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -434,6 +433,7 @@ img {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(24, 55, 75, 0.9) 0%, rgba(20, 40, 55, 0.7) 100%);
+    z-index: 1;
 }
 
 .hero-content {
@@ -918,6 +918,58 @@ textarea:focus-visible {
     outline-offset: 2px;
 }
 
+/* ==========================================================================
+   PERFORMANCE MOBILE - Efeitos otimizados
+   ========================================================================== */
+
+/* Desativar efeitos hover pesados em dispositivos touch/mobile */
+@media (hover: none), (pointer: coarse) {
+    .card-dark:hover,
+    .exp-box:hover,
+    .gallery-item:hover img,
+    .btn-gold:hover,
+    .btn-wine:hover,
+    .btn-outline:hover,
+    .btn-outline-light:hover,
+    .float-whatsapp:hover {
+        transform: none !important;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+        opacity: 0;
+    }
+}
+
+/* Manter efeitos apenas em dispositivos com mouse real */
+@media (hover: hover) and (pointer: fine) {
+    .card-dark:hover {
+        transform: translateY(-10px);
+    }
+    
+    .exp-box:hover {
+        transform: translateY(-5px);
+    }
+    
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+    
+    .btn-gold:hover,
+    .btn-wine:hover,
+    .btn-outline:hover,
+    .btn-outline-light:hover {
+        transform: translateY(-2px);
+    }
+    
+    .float-whatsapp:hover {
+        transform: scale(1.1);
+    }
+}
+
 /* Contraste de Cores para Acessibilidade */
 .btn-gold {
     background-color: var(--dourado);
@@ -974,6 +1026,55 @@ textarea:focus-visible {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   HERO SLIDESHOW
+   ========================================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    color: var(--text-light);
 }
 
 /* ==========================================================================
