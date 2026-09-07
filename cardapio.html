@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Cicchetti Natal</title>
+    <meta name="description" content="Conheça nosso cardápio fictício de tapas, massas artesanais, vinhos e drinks autorais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .menu-header {
+            background: linear-gradient(135deg, var(--verde-botanico) 0%, var(--verde-salvia) 100%);
+            padding: 6rem 0 3rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .menu-header h1 {
+            color: var(--dourado);
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .menu-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .menu-section {
+            padding: 4rem 0;
+        }
+        .menu-section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .menu-section-title i {
+            font-size: 1.8rem;
+            color: var(--terracota);
+        }
+        .menu-section-title h2 {
+            font-size: 2rem;
+            color: var(--verde-botanico);
+        }
+        .menu-section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dourado) 0%, transparent 100%);
+        }
+        .menu-items {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1.25rem;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .menu-item-info {
+            flex: 1;
+        }
+        .menu-item-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--verde-botanico);
+            margin-bottom: 0.3rem;
+        }
+        .menu-item-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .menu-item-price {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--terracota);
+            white-space: nowrap;
+            margin-left: 1.5rem;
+        }
+        .menu-item-tag {
+            display: inline-block;
+            background: var(--dourado);
+            color: var(--verde-botanico);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-top: 0.4rem;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dourado);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .back-btn:hover {
+            color: var(--dourado-hover);
+        }
+        .menu-footer {
+            background: var(--verde-botanico);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+        .menu-footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aviso Página Modelo -->
+    <div class="model-notice">
+        <div class="container">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Este NÃO é um site oficial — é uma <strong>PÁGINA MODELO</strong> com conteúdo fictício para demonstração.</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CICCHETTI</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#conceito" class="nav-link">O Conceito</a></li>
+                    <li><a href="cardapio.html" class="nav-link active">Menu</a></li>
+                    <li><a href="index.html#experiencias-diurnas" class="nav-link">Brunch & Almoço</a></li>
+                    <li><a href="index.html#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="index.html#reservas" class="nav-link">Reservas</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html#reservas" class="btn-outline btn-sm">Reservar</a>
+                <button class="mobile-menu-btn" aria-label="Menu Mobile"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <button class="close-menu"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#conceito">O Conceito</a></li>
+            <li><a href="cardapio.html">Menu</a></li>
+            <li><a href="index.html#experiencias-diurnas">Brunch & Almoço</a></li>
+            <li><a href="index.html#galeria">Galeria</a></li>
+            <li><a href="index.html#reservas">Reservas</a></li>
+        </ul>
+    </div>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+            <h1>Nosso Cardápio</h1>
+            <p>Uma seleção de pratos fictícios inspirados na autêntica culinária veneziana</p>
+        </div>
+    </section>
+
+    <!-- TAPAS & CICCHETTI -->
+    <section class="menu-section bg-alt">
+        <div class="container">
+            <div class="menu-section-title">
+                <i class="fa-solid fa-utensils"></i>
+                <h2>Tapas & Cicchetti</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Baccalà Mantecato</div>
+                        <div class="menu-item-desc">Bacalhau desfiado e cremoso, servido com polenta crocante e azeite trufado</div>
+                        <span class="menu-item-tag">Mais Pedido</span>
+                    </div>
+                    <div class="menu-item-price">R$ 42</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Carpaccio di Manzo</div>
+                        <div class="menu-item-desc">Finas fatias de filé mignon com rúcula, lascas de parmesão e molho especial da casa</div>
+                    </div>
+                    <div class="menu-item-price">R$ 48</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Arancini alla Norma</div>
+                        <div class="menu-item-desc">Bolinhos de risoto recheados com berinjela, tomate e mussarela de búfala</div>
+                    </div>
+                    <div class="menu-item-price">R$ 38</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bruschetta Classica</div>
+                        <div class="menu-item-desc">Pão rústico com tomate fresco, manjericão, alho e azeite extra virgem</div>
+                    </div>
+                    <div class="menu-item-price">R$ 32</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Prosciutto e Melone</div>
+                        <div class="menu-item-desc">Presunto de Parma com melão fresco e redução de balsâmico</div>
+                    </div>
+                    <div class="menu-item-price">R$ 45</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASSAS ARTESANAIS -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-section-title">
+                <i class="fa-solid fa-bowl-food"></i>
+                <h2>Massas Artesanais</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tagliatelle al Ragù</div>
+                        <div class="menu-item-desc">Massa fresca com ragù bolognês tradicional de 12 horas e parmesão 24 meses</div>
+                        <span class="menu-item-tag">Clássico</span>
+                    </div>
+                    <div class="menu-item-price">R$ 58</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Ravioli di Zucca</div>
+                        <div class="menu-item-desc">Ravioli recheado de abóbora com manteiga de sálvia e amêndoas tostadas</div>
+                    </div>
+                    <div class="menu-item-price">R$ 55</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pappardelle ai Funghi</div>
+                        <div class="menu-item-desc">Massa larga com mix de cogumelos frescos, creme de parmesão e trufas</div>
+                        <span class="menu-item-tag">Chef Recomenda</span>
+                    </div>
+                    <div class="menu-item-price">R$ 62</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Spaghetti alle Vongole</div>
+                        <div class="menu-item-desc">Espaguete com amêijoas frescas, alho, vinho branco e salsinha</div>
+                    </div>
+                    <div class="menu-item-price">R$ 60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Trio de Massas</div>
+                        <div class="menu-item-desc">Três mini porções: Tagliatelle, Ravioli e Pappardelle — paraexperimentar tudo</div>
+                        <span class="menu-item-tag">Especial da Casa</span>
+                    </div>
+                    <div class="menu-item-price">R$ 72</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINCIPAIS -->
+    <section class="menu-section bg-alt">
+        <div class="container">
+            <div class="menu-section-title">
+                <i class="fa-solid fa-drumstick-bite"></i>
+                <h2>Principais</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Ossobuco alla Milanese</div>
+                        <div class="menu-item-desc">Isnha de porco cozida lentamente com risoto de açafrão e gremolata</div>
+                    </div>
+                    <div class="menu-item-price">R$ 89</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Branzino al Forno</div>
+                        <div class="menu-item-desc">Robalo inteiro assado com ervas, batatas e legumes de estação</div>
+                    </div>
+                    <div class="menu-item-price">R$ 95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Costata di Manzo</div>
+                        <div class="menu-item-desc">Bife de costela 400g maturado, com purê de batata trufado e aspargos</div>
+                        <span class="menu-item-tag">Premium</span>
+                    </div>
+                    <div class="menu-item-price">R$ 128</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VINHOS & DRINKS -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-section-title">
+                <i class="fa-solid fa-wine-glass"></i>
+                <h2>Vinhos & Coquetelaria</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Spritz Veneziano</div>
+                        <div class="menu-item-desc">Aperol, Prosecco, água tônica e uma fatia de laranja</div>
+                        <span class="menu-item-tag">Clássico</span>
+                    </div>
+                    <div class="menu-item-price">R$ 38</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Negroni SBagliato</div>
+                        <div class="menu-item-desc">Campari, Vermouth DOC e Prosecco — a variação vinhosa do clássico</div>
+                    </div>
+                    <div class="menu-item-price">R$ 42</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bellini</div>
+                        <div class="menu-item-desc">Purê de pêsseco branco com Prosecco gelado</div>
+                    </div>
+                    <div class="menu-item-price">R$ 36</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Hugo Spritz</div>
+                        <div class="menu-item-desc">Prosecco, xarope de sabores de flores de sabugueiro e hortelã</div>
+                    </div>
+                    <div class="menu-item-price">R$ 38</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Negroni Classico</div>
+                        <div class="menu-item-desc">Gin, Campari e Vermouth Rosso — o equilíbrio perfeito entre amargo e doce</div>
+                    </div>
+                    <div class="menu-item-price">R$ 40</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBREMESAS -->
+    <section class="menu-section bg-alt">
+        <div class="container">
+            <div class="menu-section-title">
+                <i class="fa-solid fa-ice-cream"></i>
+                <h2>Sobremesas</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tiramisù Classico</div>
+                        <div class="menu-item-desc">Camadas de biscoito champanhe, café espresso, mascarpone e cacau</div>
+                        <span class="menu-item-tag">Mais Pedido</span>
+                    </div>
+                    <div class="menu-item-price">R$ 32</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Panna Cotta</div>
+                        <div class="menu-item-desc">Creme italiano com calda de frutas vermelhas frescas</div>
+                    </div>
+                    <div class="menu-item-price">R$ 28</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Cannoli Siciliani</div>
+                        <div class="menu-item-desc">Cones crocantes recheados com ricota doce,Chocolate e laranja cristalizada</div>
+                    </div>
+                    <div class="menu-item-price">R$ 30</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Affogato al Caffè</div>
+                        <div class="menu-item-desc">Gelato de baunilha "afogado" em espresso quente</div>
+                    </div>
+                    <div class="menu-item-price">R$ 26</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="menu-footer">
+        <p><i class="fa-solid fa-circle-info"></i> Este cardápio é <strong>fictício</strong> e foi criado apenas para fins de demonstração.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
