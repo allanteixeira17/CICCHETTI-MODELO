@@ -61,9 +61,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/hero.jpg" as="image">
+    <link rel="preload" href="css/style.css" as="style">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Skip Link para Acessibilidade -->
+    <a href="#home" class="skip-link">Pular para o conteúdo principal</a>
 
     <!-- Aviso Página Modelo -->
     <div class="model-notice">
@@ -88,15 +95,15 @@
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a href="#reservas" class="btn-outline btn-sm">Reservar</a>
-                <button class="mobile-menu-btn" aria-label="Menu Mobile"><i class="fa-solid fa-bars"></i></button>
+                <a href="#reservas" class="btn-outline btn-sm" aria-label="Reservar mesa no restaurante">Reservar</a>
+                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay">
-        <button class="close-menu"><i class="fa-solid fa-xmark"></i></button>
+    <div class="mobile-nav-overlay" role="dialog" aria-label="Menu de navegação mobile">
+        <button class="close-menu" aria-label="Fechar menu"><i class="fa-solid fa-xmark"></i></button>
         <ul class="mobile-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#conceito">O Conceito</a></li>
@@ -144,7 +151,7 @@
             <div class="conceito-img-wrapper">
                 <div class="img-badge">Assinado por Flávio Góis</div>
                 <!-- Placeholder nano banana 1 -->
-                <img src="assets/conceito.jpg" alt="Ambiente Cicchetti" class="img-responsive">
+                <img src="assets/conceito.jpg" alt="Ambiente interno do restaurante Cicchetti com decoração sofisticada e acolhedora" class="img-responsive" width="600" height="750" loading="lazy">
             </div>
             <div class="conceito-text">
                 <span class="section-tag">Nossa História</span>
@@ -207,7 +214,7 @@
             <div class="grid-2 experiencias-grid">
                 <div class="exp-box">
                     <div class="exp-img">
-                        <img src="assets/brunch.jpg" alt="Brunch Europeu">
+                        <img src="assets/brunch.jpg" alt="Mesa com pratos de brunch europeu incluindo pães, ovos e café" width="600" height="300" loading="lazy">
                         <div class="exp-badge">Sábados e Domingos (10h às 15h)</div>
                     </div>
                     <div class="exp-content">
@@ -218,7 +225,7 @@
                 
                 <div class="exp-box">
                     <div class="exp-img">
-                        <img src="assets/almoco.jpg" alt="Almoço Executivo">
+                        <img src="assets/almoco.jpg" alt="Prato de almoço executivo com comida italiana sofisticada" width="600" height="300" loading="lazy">
                         <div class="exp-badge">Segunda a Sexta</div>
                     </div>
                     <div class="exp-content">
@@ -239,19 +246,19 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="assets/conceito.jpg" alt="Galeria 1">
+                    <img src="assets/conceito.jpg" alt="Ambiente interno do restaurante Cicchetti" width="300" height="300" loading="lazy">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/brunch.jpg" alt="Galeria 2">
+                    <img src="assets/brunch.jpg" alt="Pratos de brunch europeu servidos no Cicchetti" width="300" height="300" loading="lazy">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/almoco.jpg" alt="Galeria 3">
+                    <img src="assets/almoco.jpg" alt="Almoço executivo italiano sofisticado" width="300" height="300" loading="lazy">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/coquetelaria.jpg" alt="Galeria 4">
+                    <img src="assets/coquetelaria.jpg" alt="Drinks autorais da coquetelaria do Cicchetti" width="300" height="300" loading="lazy">
                     <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
             </div>
@@ -259,8 +266,8 @@
     </section>
 
     <!-- Modal Galeria -->
-    <div id="gallery-modal" class="modal">
-        <span class="close-modal">&times;</span>
+    <div id="gallery-modal" class="modal" role="dialog" aria-label="Visualização ampliada da imagem da galeria">
+        <span class="close-modal" aria-label="Fechar visualização">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
 
@@ -286,27 +293,27 @@
                 
                 <div class="form-container">
                     <h3>Solicitação de Reserva (Grupos)</h3>
-                    <form id="reserva-form" class="custom-form">
+                    <form id="reserva-form" class="custom-form" aria-label="Formulário de solicitação de reserva">
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" required placeholder="Seu nome">
+                            <input type="text" id="nome" required placeholder="Seu nome" aria-required="true">
                         </div>
                         <div class="form-row grid-2">
                             <div class="form-group">
                                 <label for="data">Data</label>
-                                <input type="date" id="data" required>
+                                <input type="date" id="data" required aria-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="pessoas">Nº Pessoas</label>
-                                <input type="number" id="pessoas" min="1" required placeholder="Ex: 4">
+                                <input type="number" id="pessoas" min="1" required placeholder="Ex: 4" aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="mensagem">Mensagem / Ocasião</label>
                             <textarea id="mensagem" rows="3" placeholder="Aniversário, corporativo..."></textarea>
                         </div>
-                        <button type="submit" class="btn-gold w-100">Enviar Solicitação</button>
-                        <div class="form-feedback" id="reserva-feedback"></div>
+                        <button type="submit" class="btn-gold w-100" aria-label="Enviar solicitação de reserva">Enviar Solicitação</button>
+                        <div class="form-feedback" id="reserva-feedback" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -314,14 +321,14 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer bg-dark text-light">
-        <div class="container grid-3 footer-cols">
+    <footer class="footer section-padding bg-dark text-light">
+        <div class="container grid-2 footer-cols">
             <div class="footer-brand">
                 <h3 class="logo text-gold">CICCHETTI</h3>
                 <p>A essência do aperitivo italiano em Natal. Gastronomia, vinhos e coquetelaria de excelência.</p>
                 <div class="social-links mt-3">
-                    <a href="https://instagram.com/cicchettinatal" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://cicchetti.com.br" target="_blank" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://instagram.com/cicchettinatal" target="_blank" rel="noopener" aria-label="Siga-nos no Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://cicchetti.com.br" target="_blank" rel="noopener" aria-label="Acesse nosso site oficial"><i class="fa-solid fa-globe"></i></a>
                 </div>
             </div>
             
@@ -335,31 +342,24 @@
                 </ul>
             </div>
             
-            <div class="footer-newsletter">
-                <h4>Newsletter</h4>
-                <p>Assine para receber convites e novidades.</p>
-                <form id="contato-form" class="newsletter-form flex">
-                    <input type="email" required placeholder="Seu e-mail" aria-label="Email">
-                    <button type="submit" class="btn-gold"><i class="fa-solid fa-paper-plane"></i></button>
-                </form>
-                <div id="newsletter-feedback" class="form-feedback mt-2"></div>
-            </div>
         </div>
         <div class="footer-bottom text-center">
             <p>&copy; 2026 Cicchetti Natal. Todos os direitos reservados. CNPJ: 00.000.000/0001-00</p>
             <div class="footer-links">
-                <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+                <a href="franqueados.html" aria-label="Seja um franqueado Cicchetti">Seja um Franqueado</a> | 
+                <a href="#" aria-label="Ler política de privacidade do Cicchetti">Política de Privacidade</a> | 
+                <a href="#" aria-label="Ler termos de uso do Cicchetti">Termos de Uso</a>
             </div>
         </div>
     </footer>
 
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5584900000000" class="float-whatsapp" target="_blank" title="Fale conosco no WhatsApp">
+    <a href="https://wa.me/5584900000000" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip">Fale com a Recepção</span>
     </a>
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

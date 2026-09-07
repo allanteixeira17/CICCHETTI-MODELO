@@ -118,19 +118,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* 6. Newsletter Form */
-    const newsForm = document.getElementById('contato-form');
-    const newsFeedback = document.getElementById('newsletter-feedback');
-
-    if(newsForm) {
-        newsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            newsFeedback.textContent = 'Inscrito com sucesso!';
-            newsFeedback.className = 'form-feedback success';
-            newsForm.reset();
-            setTimeout(() => {
-                newsFeedback.className = 'form-feedback';
-            }, 3000);
-        });
-    }
 });

@@ -12,8 +12,8 @@
    ========================================================================== */
 :root {
     /* Cores Primárias */
-    --verde-botanico: #2a3d32;
-    --verde-salvia: #4A5D4E;
+    --verde-botanico: #18374B;
+    --verde-salvia: #1f4a63;
     --terracota: #A35638;
     --vinho: #632626;
     
@@ -28,7 +28,7 @@
     /* Textos */
     --text-dark: #1A1F1B;
     --text-light: #F7F5F0;
-    --text-muted: #666b68;
+    --text-muted: #555a57;
     
     /* Tipografia */
     --font-display: 'Cormorant Garamond', serif;
@@ -299,7 +299,7 @@ img {
 }
 
 #header.scrolled {
-    background-color: rgba(42, 61, 50, 0.95);
+    background-color: rgba(24, 55, 75, 0.95);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
     box-shadow: var(--shadow-sm);
@@ -433,7 +433,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(42, 61, 50, 0.9) 0%, rgba(26, 31, 27, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(24, 55, 75, 0.9) 0%, rgba(20, 40, 55, 0.7) 100%);
 }
 
 .hero-content {
@@ -681,7 +681,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(42, 61, 50, 0.7);
+    background: rgba(24, 55, 75, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -759,6 +759,10 @@ img {
 }
 
 /* Footer */
+.footer {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+}
 .footer-cols {
     margin-bottom: 4rem;
 }
@@ -875,6 +879,70 @@ img {
 
 .float-whatsapp:hover .tooltip {
     opacity: 1;
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE - Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Skip Link para Acessibilidade */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--verde-botanico);
+    color: var(--white);
+    padding: 8px 16px;
+    z-index: 10000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus States Melhorados */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+/* Contraste de Cores para Acessibilidade */
+.btn-gold {
+    background-color: var(--dourado);
+    color: var(--verde-botanico);
+    font-weight: 600;
+}
+
+.btn-wine {
+    background-color: var(--terracota);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--dourado);
+    border-color: var(--dourado);
+    font-weight: 600;
+}
+
+.btn-outline-light {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+    font-weight: 600;
 }
 
 /* ==========================================================================

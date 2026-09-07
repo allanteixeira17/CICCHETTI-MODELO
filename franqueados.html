@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja um Franqueado | Cicchetti Natal</title>
+    <meta name="description" content="Invista em uma franquia de restaurante italiano de alto padrão. Descubra as oportunidades de franquia Cicchetti.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .franq-header {
+            background: linear-gradient(135deg, #18374B 0%, #1f4a63 100%);
+            padding: 6rem 0 3rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .franq-header h1 {
+            color: var(--dourado);
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .franq-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .franq-section {
+            padding: 5rem 0;
+        }
+        .franq-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--terracota);
+            margin-bottom: 1.5rem;
+        }
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--verde-botanico);
+        }
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .franq-form-section {
+            background: var(--bg-alt);
+        }
+        .franq-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+        .franq-form-container h2 {
+            text-align: center;
+            color: var(--verde-botanico);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        .franq-form-container .form-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--terracota);
+            box-shadow: 0 0 0 3px rgba(163, 86, 56, 0.1);
+        }
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--dourado);
+            color: var(--verde-botanico);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-submit:hover {
+            background: var(--dourado-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-feedback {
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        .form-feedback.success {
+            display: block;
+            color: #2ecc71;
+        }
+        .form-feedback.error {
+            display: block;
+            color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            .franq-benefits {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .franq-header h1 {
+                font-size: 2.5rem;
+            }
+            .franq-form-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aviso Página Modelo -->
+    <div class="model-notice">
+        <div class="container">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Este NÃO é um site oficial — é uma <strong>PÁGINA MODELO</strong> com conteúdo fictício para demonstração.</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Página inicial do Cicchetti">CICCHETTI</a>
+            <nav aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#conceito" class="nav-link">O Conceito</a></li>
+                    <li><a href="cardapio.html" class="nav-link">Menu</a></li>
+                    <li><a href="index.html#experiencias-diurnas" class="nav-link">Brunch & Almoço</a></li>
+                    <li><a href="index.html#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="index.html#reservas" class="nav-link">Reservas</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html#reservas" class="btn-outline btn-sm" aria-label="Reservar mesa no restaurante">Reservar</a>
+                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" role="dialog" aria-label="Menu de navegação mobile">
+        <button class="close-menu" aria-label="Fechar menu"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#conceito">O Conceito</a></li>
+            <li><a href="cardapio.html">Menu</a></li>
+            <li><a href="index.html#experiencias-diurnas">Brunch & Almoço</a></li>
+            <li><a href="index.html#galeria">Galeria</a></li>
+            <li><a href="index.html#reservas">Reservas</a></li>
+        </ul>
+    </div>
+
+    <!-- Header Franqueados -->
+    <section class="franq-header">
+        <div class="container">
+            <a href="index.html" class="back-btn" style="color: var(--dourado); display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-arrow-left"></i> Voltar ao Início</a>
+            <h1>Seja um Franqueado</h1>
+            <p>Faça parte da marca que referencia alta gastronomia italiana no Rio Grande do Norte. Invista em um negócio lucrativo e sofisticado.</p>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="franq-section">
+        <div class="container">
+            <div class="franq-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Suporte Completo</h3>
+                    <p>Do treinamento à abertura, nossa equipe acompanha cada etapa para garantir o sucesso do seu empreendimento.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Alta Rentabilidade</h3>
+                    <p>Modelo de negócio com alta margem de lucro, comprovado pelo sucesso das unidades já existentes.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-crown"></i></div>
+                    <h3>Marca Premium</h3>
+                    <p>O Cicchetti é sinônimo de sofisticação e qualidade. Uma marca que agrega valor ao seu investimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário -->
+    <section class="franq-section franq-form-section">
+        <div class="container">
+            <div class="franq-form-container">
+                <h2>Quero Ser Franqueado</h2>
+                <p class="form-subtitle">Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
+                
+                <form id="franq-form" aria-label="Formulário de contato para franqueados">
+                    <div class="form-group">
+                        <label for="franq-nome">Nome Completo *</label>
+                        <input type="text" id="franq-nome" name="nome" required placeholder="Seu nome completo" aria-required="true">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="franq-ddd">DDD *</label>
+                            <input type="tel" id="franq-ddd" name="ddd" required placeholder="Ex: 84" maxlength="2" pattern="[0-9]{2}" aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="franq-celular">Celular *</label>
+                            <input type="tel" id="franq-celular" name="celular" required placeholder="Ex: 99999-0000" aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="franq-email">E-mail *</label>
+                        <input type="email" id="franq-email" name="email" required placeholder="seu@email.com" aria-required="true">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="franq-capital">Capital de Investimento *</label>
+                            <select id="franq-capital" name="capital" required aria-required="true">
+                                <option value="">Selecione</option>
+                                <option value="100k-200k">R$ 100.000 - R$ 200.000</option>
+                                <option value="200k-300k">R$ 200.000 - R$ 300.000</option>
+                                <option value="300k-400k">R$ 300.000 - R$ 400.000</option>
+                                <option value="400k-500k">R$ 400.000 - R$ 500.000</option>
+                                <option value="500k+">Acima de R$ 500.000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="franq-cidade">Cidade *</label>
+                            <input type="text" id="franq-cidade" name="cidade" required placeholder="Sua cidade" aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="franq-estado">Estado *</label>
+                        <select id="franq-estado" name="estado" required aria-required="true">
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit" aria-label="Enviar formulário de franqueado">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar Solicitação
+                    </button>
+
+                    <div class="form-feedback" id="franq-feedback" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding bg-dark text-light">
+        <div class="container grid-2 footer-cols">
+            <div class="footer-brand">
+                <h3 class="logo text-gold">CICCHETTI</h3>
+                <p>A essência do aperitivo italiano em Natal. Gastronomia, vinhos e coquetelaria de excelência.</p>
+                <div class="social-links mt-3">
+                    <a href="https://instagram.com/cicchettinatal" target="_blank" rel="noopener" aria-label="Siga-nos no Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://cicchetti.com.br" target="_blank" rel="noopener" aria-label="Acesse nosso site oficial"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Onde Estamos</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot text-gold"></i> Midway Mall, Natal/RN</li>
+                    <li><i class="fa-solid fa-phone text-gold"></i> (84) 3000-0000</li>
+                    <li><i class="fa-brands fa-whatsapp text-gold"></i> (84) 90000-0000</li>
+                    <li><i class="fa-solid fa-envelope text-gold"></i> natal@cicchetti.com.br</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Cicchetti Natal. Todos os direitos reservados. CNPJ: 00.000.000/0001-00</p>
+            <div class="footer-links">
+                <a href="#" aria-label="Ler política de privacidade do Cicchetti">Política de Privacidade</a> | <a href="#" aria-label="Ler termos de uso do Cicchetti">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5584900000000" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip">Fale com a Recepção</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('franq-form');
+            const feedback = document.getElementById('franq-feedback');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const btn = form.querySelector('button[type="submit"]');
+                    const originalText = btn.innerHTML;
+
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+                    btn.disabled = true;
+
+                    setTimeout(() => {
+                        feedback.textContent = 'Solicitação enviada com sucesso! Nossa equipe entrará em contato em até 48 horas.';
+                        feedback.className = 'form-feedback success';
+                        form.reset();
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+
+                        setTimeout(() => {
+                            feedback.className = 'form-feedback';
+                        }, 5000);
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

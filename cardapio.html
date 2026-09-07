@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .menu-header {
-            background: linear-gradient(135deg, var(--verde-botanico) 0%, var(--verde-salvia) 100%);
+            background: linear-gradient(135deg, #18374B 0%, #1f4a63 100%);
             padding: 6rem 0 3rem;
             text-align: center;
             color: var(--text-light);
@@ -136,27 +136,27 @@
     <!-- Header -->
     <header id="header">
         <div class="container nav-container">
-            <a href="index.html" class="logo">CICCHETTI</a>
-            <nav>
+            <a href="index.html" class="logo" aria-label="Página inicial do Cicchetti">CICCHETTI</a>
+            <nav aria-label="Menu principal">
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="index.html#conceito" class="nav-link">O Conceito</a></li>
-                    <li><a href="cardapio.html" class="nav-link active">Menu</a></li>
+                    <li><a href="cardapio.html" class="nav-link active" aria-current="page">Menu</a></li>
                     <li><a href="index.html#experiencias-diurnas" class="nav-link">Brunch & Almoço</a></li>
                     <li><a href="index.html#galeria" class="nav-link">Galeria</a></li>
                     <li><a href="index.html#reservas" class="nav-link">Reservas</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a href="index.html#reservas" class="btn-outline btn-sm">Reservar</a>
-                <button class="mobile-menu-btn" aria-label="Menu Mobile"><i class="fa-solid fa-bars"></i></button>
+                <a href="index.html#reservas" class="btn-outline btn-sm" aria-label="Reservar mesa no restaurante">Reservar</a>
+                <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay">
-        <button class="close-menu"><i class="fa-solid fa-xmark"></i></button>
+    <div class="mobile-nav-overlay" role="dialog" aria-label="Menu de navegação mobile">
+        <button class="close-menu" aria-label="Fechar menu"><i class="fa-solid fa-xmark"></i></button>
         <ul class="mobile-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#conceito">O Conceito</a></li>
@@ -403,6 +403,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
