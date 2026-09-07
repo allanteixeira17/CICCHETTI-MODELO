@@ -413,6 +413,27 @@ img {
     color: var(--dourado);
 }
 
+/* Crédito do Desenvolvedor */
+.dev-credit {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 0;
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+}
+
+.dev-credit a {
+    color: var(--dourado);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.dev-credit a:hover {
+    color: var(--dourado-hover);
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    SECTIONS
    ========================================================================== */

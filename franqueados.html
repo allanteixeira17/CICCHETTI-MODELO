@@ -5,12 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seja um Franqueado | Cicchetti Natal</title>
     <meta name="description" content="Invista em uma franquia de restaurante italiano de alto padrão. Descubra as oportunidades de franquia Cicchetti.">
+    
+    <!-- CSS CRÍTICO INLINE -->
+    <style>
+        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--vinho:#632626;--madeira-clara:#D9C5B2;--dourado:#C5A880;--dourado-hover:#e0c298;--off-white:#F7F5F0;--white:#ffffff;--bg-alt:#EFECE4;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--section-padding:6rem 0;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--shadow-sm:0 4px 6px rgba(0,0,0,0.05);--shadow-md:0 10px 30px rgba(0,0,0,0.1);--shadow-hover:0 20px 40px rgba(0,0,0,0.15);--transition:all 0.3s cubic-bezier(0.25,0.8,0.25,1)}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-body);color:var(--text-dark);background-color:var(--off-white);line-height:1.6;overflow-x:hidden}
+        .container{max-width:var(--container-width);margin:0 auto;padding:0 2rem}
+        .model-notice{background:linear-gradient(135deg,#ff6b35 0%,#f7931e 100%);color:white;text-align:center;padding:0.75rem 1rem;font-size:0.85rem;font-weight:500;position:relative;z-index:1001}
+        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap}
+        #header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.5rem 0;background-color:transparent;transition:background-color 0.4s ease,padding 0.4s ease,box-shadow 0.4s ease}
+        .nav-container{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--dourado);letter-spacing:2px}
+        .franq-header{background:linear-gradient(135deg,#18374B 0%,#1f4a63 100%);padding:6rem 0 3rem;text-align:center;color:var(--text-light)}
+        .franq-header h1{color:var(--dourado);font-size:3.5rem;margin-bottom:0.5rem}
+        .franq-section{padding:5rem 0}
+        .franq-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:4rem}
+        .benefit-card{background:var(--white);padding:2.5rem 2rem;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);text-align:center;transition:var(--transition)}
+        .benefit-icon{font-size:2.5rem;color:var(--terracota);margin-bottom:1.5rem}
+        .benefit-card h3{font-size:1.4rem;margin-bottom:0.8rem;color:var(--verde-botanico)}
+        .benefit-card p{font-size:0.95rem;color:var(--text-muted);line-height:1.6}
+        .franq-form-section{background:var(--bg-alt)}
+        .franq-form-container{max-width:700px;margin:0 auto;background:var(--white);padding:3rem;border-radius:var(--radius-md);box-shadow:var(--shadow-md)}
+        .franq-form-container h2{text-align:center;color:var(--verde-botanico);margin-bottom:0.5rem;font-size:2.5rem}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+        .form-group{margin-bottom:1.5rem}
+        .form-group label{display:block;margin-bottom:0.5rem;font-weight:500;font-size:0.9rem}
+        .form-group input,.form-group select{width:100%;padding:1rem;border:1px solid #ddd;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:0.95rem;transition:var(--transition)}
+        .btn-submit{width:100%;padding:1.1rem;background:var(--dourado);color:var(--verde-botanico);border:none;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:var(--transition)}
+        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:var(--white);padding:8px 16px;z-index:10000;transition:top 0.3s}
+        .skip-link:focus{top:0}
+        .dev-credit{background:rgba(0,0,0,0.3);padding:0.4rem 0;text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.7)}
+        .dev-credit a{color:var(--dourado);font-weight:600}
+        @media(max-width:992px){.franq-benefits{grid-template-columns:1fr}.nav-links,.nav-actions .btn-outline{display:none}.mobile-menu-btn{display:block}}
+        @media(max-width:576px){.franq-header h1{font-size:2.5rem}.form-row{grid-template-columns:1fr}.franq-form-container{padding:2rem 1.5rem}}
+    </style>
+
+    <!-- Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Font Awesome (non-blocking) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- CSS Completo (non-blocking) -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+</head>
         .franq-header {
             background: linear-gradient(135deg, #18374B 0%, #1f4a63 100%);
             padding: 6rem 0 3rem;
@@ -183,7 +227,7 @@
     <div class="model-notice">
         <div class="container">
             <i class="fa-solid fa-circle-info"></i>
-            <span>Este NÃO é um site oficial — é uma <strong>PÁGINA MODELO</strong> com conteúdo fictício para demonstração.</span>
+            <span>Este NÃO é um site oficial — é uma <strong>PÁGINA MODELO</strong> com conteúdo fictício para demonstração. Desenvolvido por <a href="https://alnsolucoesdigitais.com.br/" target="_blank" rel="noopener" style="color: white; font-weight: 700; text-decoration: underline;">ALN Soluções Digitais</a></span>
         </div>
     </div>
 
