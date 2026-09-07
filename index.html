@@ -55,9 +55,8 @@
     }
     </script>
 
-    <!-- Preload: Imagem LCP Hero (Responsive) -->
-    <link rel="preload" href="assets/webp/hero.webp" as="image" type="image/webp" media="(max-width: 768px)">
-    <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp" media="(min-width: 769px)">
+    <!-- Preload: Imagem LCP Hero -->
+    <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp">
 
     <!-- Fonts (Synchronous + display=swap para evitar FOIT) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,9 +125,8 @@
         <div class="hero-slideshow" id="hero-slideshow">
             <div class="hero-slide active">
                 <picture>
-                    <source media="(max-width: 768px)" type="image/webp" srcset="assets/webp/hero.webp">
-                    <source media="(min-width: 769px)" type="image/webp" srcset="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp">
-                    <img src="assets/hero/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.jpg" alt="Trio de massas artesanais servido com carbonara, ravioli pecorino trufado e nero alla puttanesca" width="1920" height="1080" fetchpriority="high">
+                    <source type="image/webp" srcset="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp">
+                    <img src="assets/hero/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.jpg" alt="Trio de massas artesanais servido com carbonara, ravioli pecorino trufado e nero alla puttanesca" width="1920" height="1080" fetchpriority="high" decoding="async">
                 </picture>
             </div>
         </div>
