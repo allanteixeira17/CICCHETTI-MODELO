@@ -55,54 +55,21 @@
     }
     </script>
 
-    <!-- CSS CRÍTICO INLINE (Mínimo para First Paint) -->
-    <style>
-        :root{--verde-botanico:#18374B;--verde-salvia:#1f4a63;--terracota:#A35638;--dourado:#C5A880;--off-white:#F7F5F0;--white:#fff;--text-dark:#1A1F1B;--text-light:#F7F5F0;--text-muted:#555a57;--font-display:'Cormorant Garamond',serif;--font-body:'Plus Jakarta Sans',sans-serif;--container-width:1200px;--radius-sm:4px;--transition:all .3s cubic-bezier(.25,.8,.25,1)}
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        html{font-size:16px;scroll-behavior:smooth}
-        body{font-family:var(--font-body);color:var(--text-dark);background:var(--off-white);line-height:1.6;overflow-x:hidden}
-        .container{max-width:var(--container-width);margin:0 auto;padding:0 2rem}
-        #header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 0;background:transparent;transition:background .4s,padding .4s,box-shadow .4s}
-        .nav-container{display:flex;justify-content:space-between;align-items:center}
-        .logo{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--dourado);letter-spacing:2px}
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-        .hero-slideshow{position:absolute;inset:0;z-index:0}
-        .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s}
-        .hero-slide.active{opacity:1}
-        .hero-slide img{width:100%;height:100%;object-fit:cover}
-        .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(24,55,75,.9),rgba(20,40,55,.7));z-index:1}
-        .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;color:var(--text-light);padding:0 2rem}
-        .hero-subtitle{display:block;font-size:.9rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:1.5rem}
-        .hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,5rem);font-weight:600;line-height:1.1;color:#fff;margin-bottom:1.5rem;text-shadow:0 4px 15px rgba(0,0,0,.3)}
-        .hero p{font-size:1.2rem;font-weight:300;margin-bottom:2.5rem;max-width:700px;margin-inline:auto;opacity:.9}
-        .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2.5rem;font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;font-size:.85rem;border-radius:4px;cursor:pointer;transition:var(--transition);border:1px solid transparent;text-decoration:none}
-        .btn-gold{background:var(--dourado);color:var(--verde-botanico)}
-        .btn-outline-light{background:transparent;color:#fff;border-color:#fff}
-        .model-notice{background:linear-gradient(135deg,#ff6b35,#f7931e);color:#fff;text-align:center;padding:.75rem 1rem;font-size:.85rem;font-weight:500;z-index:1001}
-        .model-notice .container{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
-        .model-notice i{font-size:1rem}.model-notice strong{font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-        .skip-link{position:absolute;top:-40px;left:0;background:var(--verde-botanico);color:#fff;padding:8px 16px;z-index:10000;transition:top .3s}
-        .skip-link:focus{top:0}
-    </style>
-
-    <!-- Preload: imagem LCP (ANTES de tudo para máxima prioridade) -->
+    <!-- Preload: Imagem LCP Hero -->
     <link rel="preload" href="assets/webp/Trio-de-Massas-e-servido-com-carbonara-ravioli-pecorino-trufado-e-nero-alla-puttanesca-2048x1365.webp" as="image" type="image/webp">
 
-    <!-- Fonts (async - não bloqueia render) -->
+    <!-- Fonts (Synchronous + display=swap para evitar FOIT) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome (async) -->
+    <!-- Font Awesome (async para não bloquear render) -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- CSS completo (async - o crítico inline acima garante first paint) -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- CSS completo (Síncrono para garantir 0 CLS) -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
