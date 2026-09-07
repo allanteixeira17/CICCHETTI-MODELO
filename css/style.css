@@ -1108,6 +1108,16 @@ textarea:focus-visible {
     .hero-destaques { display: none; }
     .nav-links, .nav-actions .btn-outline { display: none; }
     .mobile-menu-btn { display: block; }
+
+    /* Performance: desligar backdrop-filter em tablet/mobile (causa jank) */
+    .destaque-item,
+    #header.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    #header.scrolled {
+        background-color: rgba(24, 55, 75, 0.98);
+    }
 }
 
 @media (max-width: 576px) {
@@ -1116,4 +1126,51 @@ textarea:focus-visible {
     .gallery-grid { grid-template-columns: 1fr; }
     .section-padding { padding: 4rem 0; }
     .conceito-text h2, .cardapio h2 { font-size: 2.5rem; }
+}
+
+/* ==========================================================================
+   PERFORMANCE: DESLIGAR EFEITOS PESADOS EM TOUCH/MOBILE
+   ========================================================================== */
+@media (hover: none), (pointer: coarse) {
+    .card-dark:hover {
+        transform: none;
+    }
+    .exp-box:hover {
+        transform: none;
+    }
+    .gallery-item:hover img {
+        transform: none;
+    }
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE: PREFERS-REDUCED-MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .hero-slide {
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   PERFORMANCE: CONTAIN & WILL-CHANGE HINTS
+   ========================================================================== */
+.hero-slide img {
+    contain: layout style;
+}
+
+.card-dark,
+.exp-box,
+.gallery-item {
+    contain: layout style;
+}
+
+#header {
+    will-change: background-color, padding;
 }

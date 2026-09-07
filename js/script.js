@@ -1,10 +1,11 @@
 /* 
   SISTEMA:    Cicchetti Natal Landing Page
   TELA:       Home Completa
-  STACK:      JS Vanilla OTIMIZADO PARA PERFORMANCE
+  DESIGNER:   Web Designer Sênior
+  STACK:      JS Vanilla OTIMIZADO para Core Web Vitals
 */
 
-/* Função throttle para performance */
+/* Função throttle para performance (INP) */
 function throttle(fn, wait) {
     let last = 0;
     return (...args) => {
@@ -16,38 +17,33 @@ function throttle(fn, wait) {
     };
 }
 
-/* Função debounce */
-function debounce(fn, wait) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => fn(...args), wait);
-    };
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     
-    /* 0. Hero Slideshow - usando requestAnimationFrame */
+    /* 0. Hero Slideshow - usando requestAnimationFrame para visibilidade */
     const slides = document.querySelectorAll('.hero-slide');
     if (slides.length > 0) {
         let currentSlide = 0;
         const slideInterval = 5000;
-        let lastSlideTime = 0;
 
-        const nextSlide = (timestamp) => {
-            if (timestamp - lastSlideTime >= slideInterval) {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-                lastSlideTime = timestamp;
-            }
-            requestAnimationFrame(nextSlide);
+        const nextSlide = () => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
         };
 
-        requestAnimationFrame(nextSlide);
+        /* Pausar slideshow quando a aba não está visível (economiza CPU) */
+        let slideTimer = setInterval(nextSlide, slideInterval);
+        
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(slideTimer);
+            } else {
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+        });
     }
 
-    /* 1. Header Scroll Effect - com throttle e passive */
+    /* 1. Header Scroll Effect - com throttle + passive */
     const header = document.getElementById('header');
     
     const handleScroll = () => {
@@ -58,20 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    window.addEventListener('scroll', throttle(handleScroll, 150), { passive: true });
-
-    /* 2. Scroll Spy para Nav Links - com throttle mais agressivo */
-    const sections = document.querySelectorAll('section[id]');
+    /* 2. Scroll Spy para Nav Links - combinado com handleScroll para usar 1 só listener */
+    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    const handleScrollSpy = () => {
-        let current = '';
+    const handleScrollAll = () => {
+        /* Header */
+        handleScroll();
         
-        for (let i = 0; i < sections.length; i++) {
-            const section = sections[i];
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
+        /* Scroll Spy */
+        let current = '';
+        const scrollPos = window.scrollY;
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+            if (scrollPos >= sections[i].offsetTop - 200) {
+                current = sections[i].getAttribute('id');
+                break;
             }
         }
 
@@ -83,139 +81,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', throttle(handleScrollSpy, 200), { passive: true });
+    /* Um único listener de scroll com throttle (era 2 separados antes) */
+    window.addEventListener('scroll', throttle(handleScrollAll, 100), { passive: true });
 
-    /* 3. Mobile Menu Toggle - com debounce */
+    /* 3. Mobile Menu Toggle */
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const mobileOverlay = document.querySelector('.mobile-nav-overlay');
     const closeBtn = document.querySelector('.close-menu');
     const mobileLinks = document.querySelectorAll('.mobile-links a');
 
     if(mobileBtn && mobileOverlay) {
-        const toggleMenu = debounce(() => {
+        mobileBtn.addEventListener('click', () => {
             mobileOverlay.classList.add('open');
+            mobileBtn.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
-        }, 100);
-
-        mobileBtn.addEventListener('click', toggleMenu);
+        });
 
         const closeMenu = () => {
             mobileOverlay.classList.remove('open');
-            document.body.style.overflow = 'auto';
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         };
 
         closeBtn.addEventListener('click', closeMenu);
         mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
     }
 
-    /* 4. Modal de Galeria - lazy loaded */
-    let modalLoaded = false;
-    
-    const initModal = () => {
-        if (modalLoaded) return;
-        modalLoaded = true;
-        
-        const modal = document.getElementById('gallery-modal');
-        const modalImg = document.getElementById('modal-img');
-        const closeClasses = document.querySelector('.close-modal');
-        const galleryItems = document.querySelectorAll('.gallery-item img');
+    /* 4. Modal de Galeria - usando dataset para evitar reflow */
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeModal = document.querySelector('.close-modal');
+    const galleryItems = document.querySelectorAll('.gallery-item');
 
-        galleryItems.forEach(img => {
-            img.parentNode.addEventListener('click', () => {
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img) {
                 modal.style.display = "block";
-                modalImg.src = img.src;
-            });
-        });
-
-        if(closeClasses) {
-            closeClasses.addEventListener('click', () => {
-                modal.style.display = "none";
-            });
-        }
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    };
-
-    /* Inicializar modal apenas quando necessário */
-    const gallerySection = document.getElementById('galeria');
-    if (gallerySection) {
-        const galleryObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    initModal();
-                    galleryObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        galleryObserver.observe(gallerySection);
-    }
-
-    /* 5. Validação de Formulário - lazy loaded */
-    let formLoaded = false;
-    
-    const initForm = () => {
-        if (formLoaded) return;
-        formLoaded = true;
-        
-        const reservaForm = document.getElementById('reserva-form');
-        const feedbackDiv = document.getElementById('reserva-feedback');
-
-        if(reservaForm) {
-            reservaForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const btn = reservaForm.querySelector('button[type="submit"]');
-                const originalText = btn.innerHTML;
-                
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processando...';
-                btn.disabled = true;
-
-                setTimeout(() => {
-                    feedbackDiv.textContent = 'Solicitação enviada com sucesso! Nossa equipe entrará em contato via WhatsApp.';
-                    feedbackDiv.className = 'form-feedback success';
-                    reservaForm.reset();
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    
-                    setTimeout(() => {
-                        feedbackDiv.className = 'form-feedback';
-                    }, 5000);
-                }, 1500);
-            });
-        }
-    };
-
-    /* Inicializar formulário apenas quando necessário */
-    const reservaSection = document.getElementById('reservas');
-    if (reservaSection) {
-        const formObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    initForm();
-                    formObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        formObserver.observe(reservaSection);
-    }
-
-    /* 6. Smooth scroll para âncoras - otimizado */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                modalImg.src = img.currentSrc || img.src;
+                document.body.style.overflow = 'hidden';
             }
         });
     });
+
+    const hideModal = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = '';
+    };
+
+    if(closeModal) {
+        closeModal.addEventListener('click', hideModal);
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
+
+    /* Fechar modal com Escape */
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            hideModal();
+        }
+    });
+
+    /* 5. Validação de Formulário e Feedback Visual */
+    const reservaForm = document.getElementById('reserva-form');
+    const feedbackDiv = document.getElementById('reserva-feedback');
+
+    if(reservaForm) {
+        reservaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btn = reservaForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                feedbackDiv.textContent = 'Solicitação enviada com sucesso! Nossa equipe entrará em contato via WhatsApp.';
+                feedbackDiv.className = 'form-feedback success';
+                reservaForm.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                setTimeout(() => {
+                    feedbackDiv.className = 'form-feedback';
+                }, 5000);
+            }, 1500);
+        });
+    }
+
 });
